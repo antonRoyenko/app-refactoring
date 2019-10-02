@@ -31,9 +31,6 @@
         "storybook:start": "start-storybook -p 6006",
         "storybook:build": "build-storybook"
     },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
     "browserslist": [
         ">0.2%",
         "not dead",
@@ -50,14 +47,15 @@
         "eslint-config-react-app": "^5.0.2",
         "eslint-formatter-friendly": "^7.0.0",
         "eslint-import-resolver-webpack": "^0.11.1",
+        "eslint-plugin-flowtype": "^4.3.0",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-prettier": "^3.1.1",
         "eslint-plugin-react": "^7.15.1",
         "eslint-plugin-react-hooks": "^2.1.1",
         "eslint-plugin-redux-saga": "^1.1.1",
-        "husky": "^3.0.8",
-        "lint-staged": "^9.4.1",
+        "husky": "^2.3.0",
+        "lint-staged": "^8.1.7",
         "stylelint": "^11.0.0",
         "stylelint-config-css-modules": "^1.5.0",
         "stylelint-config-rational-order": "^0.1.2",
@@ -67,13 +65,8 @@
         "stylelint-order": "^3.1.1",
         "stylelint-scss": "^3.11.1"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
     "lint-staged": {
-        "src/**/*.(ts|tsx)": [
+        "src/**/*.(js|jsx)": [
             "yarn run lint:scripts:fix",
             "git add"
         ],
@@ -81,6 +74,11 @@
             "yarn run lint:styles:fix",
             "git add"
         ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
     },
     "stylelint": {
         "extends": [
@@ -105,6 +103,119 @@
                     "empty-line-between-groups": true
                 }
             ]
+        }
+    },
+    "prettier": {
+        "singleQuote": true,
+        "printWidth": 80,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": true,
+        "trailingComma": "all"
+    },
+    "eslintConfig": {
+        "plugins": [
+            "react",
+            "prettier",
+            "redux-saga",
+            "react-hooks"
+        ],
+        "parser": "babel-eslint",
+        "extends": [
+            "plugin:react/recommended",
+            "react-app",
+            "airbnb",
+            "prettier/react",
+            "plugin:prettier/recommended"
+        ],
+        "parserOptions": {
+            "ecmaVersion": 2018,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
+        "settings": {
+            "import/resolver": {
+                "node": {
+                    "extensions": [
+                        ".js",
+                        ".jsx",
+                        ".json"
+                    ]
+                }
+            }
+        },
+        "rules": {
+            "import/no-extraneous-dependencies": 0,
+            "import/no-anonymous-default-export": 2,
+            "import/no-unresolved": {
+                "commonjs": true
+            },
+            "react/jsx-key": 2,
+            "react/jsx-one-expression-per-line": 0,
+            "react/prop-types": 0,
+            "react/jsx-filename-extension": [
+                1,
+                {
+                    "extensions": [
+                        ".jsx"
+                    ]
+                }
+            ],
+            "jsx-a11y/label-has-for": 0,
+            "prettier/prettier": 1,
+            "comma-dangle": 0,
+            "spaced-comment": 1,
+            "no-await-in-loop": 0,
+            "no-use-before-define": 0,
+            "no-restricted-syntax": [
+                "error",
+                "ForInStatement",
+                "LabeledStatement",
+                "WithStatement"
+            ],
+            "no-underscore-dangle": 0,
+            "no-debugger": 1,
+            "sort-imports": [
+                "error",
+                {
+                    "ignoreDeclarationSort": true
+                }
+            ],
+            "arrow-body-style": [
+                2,
+                "as-needed"
+            ],
+            "import/imports-first": 2,
+            "import/newline-after-import": 2,
+            "import/no-dynamic-require": 0,
+            "import/no-named-as-default": 0,
+            "import/no-webpack-loader-syntax": 0,
+            "import/prefer-default-export": 0,
+            "max-len": 0,
+            "newline-per-chained-call": 0,
+            "no-confusing-arrow": [
+                "error",
+                {
+                    "allowParens": true
+                }
+            ],
+            "no-console": 1,
+            "no-unused-vars": 2,
+            "prefer-template": 2,
+            "react/jsx-first-prop-new-line": [
+                2,
+                "multiline"
+            ],
+            "react/jsx-no-target-blank": 0,
+            "react/jsx-uses-vars": 2,
+            "react/sort-comp": 0,
+            "redux-saga/no-yield-in-race": 2,
+            "redux-saga/yield-effects": 2,
+            "require-yield": 0,
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn"
         }
     }
 }

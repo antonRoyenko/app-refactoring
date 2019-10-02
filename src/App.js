@@ -4,10 +4,10 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import {
-  simpleAction,
-  selectLoading,
   selectGuests,
+  selectLoading,
   selectMessage,
+  simpleAction,
 } from './reducer';
 import logo from './logo.svg';
 import './App.css';
