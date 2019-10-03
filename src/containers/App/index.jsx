@@ -11,9 +11,6 @@ import { DropDown } from '../../components/Select';
 import { StatusMessage } from '../../components/StatusMessage';
 
 import {
-  selectGuests,
-  selectLoading,
-  selectMessage,
   simpleAction,
 } from './reducer';
 import logo from './logo.svg';
@@ -95,18 +92,12 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  guests: selectGuests(state),
-  loading: selectLoading(state),
-  message: selectMessage(state),
-});
-
 const mapDispatchToProps = dispatch => ({
   simpleAction: values => dispatch(simpleAction(values)),
 });
 
 const withConnect = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 );
 
