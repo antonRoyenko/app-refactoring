@@ -849,7 +849,6 @@
 "@redux-saga/core@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.1.1.tgz#72432130630cca08260086ffc564c2aa5488a0a2"
-  integrity sha512-WKXfj2cYkP0eh74dE1ueMjVDoGJIkppXiMFgx0buVRkXENeZmRxIjM4lh9LEWWFqay7I/Qkw7+cMossa7xXoAQ==
   dependencies:
     "@babel/runtime" "^7.6.0"
     "@redux-saga/deferred" "^1.1.0"
@@ -863,19 +862,16 @@
 "@redux-saga/deferred@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/deferred/-/deferred-1.1.0.tgz#aff018f64a936c288c18bd64ddf9ccfa143db6b4"
-  integrity sha512-wOCJCby3hx14bvrEeFLJ1JJTjJdXDJyC+B3JQ6eiqgzNghylbf969lIYmS2Arf2QuALfUtRBNPXBIMDKG9km4g==
 
 "@redux-saga/delay-p@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/delay-p/-/delay-p-1.1.0.tgz#4024f979d0f78763d2e90233be8c922781ae4400"
-  integrity sha512-BcRwXs20kKjgiYEwZARkpVoRIe/hHftW3iwPhdeW4/jPyR9gLv/vG8VsJMF5NDEch+/w/mJtdgSubq+wtOS47g==
   dependencies:
     "@redux-saga/symbols" "^1.1.0"
 
 "@redux-saga/is@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/is/-/is-1.1.0.tgz#d74358364ebde160bf1b8bd94903ff7684b12d41"
-  integrity sha512-0uFXWGSvDCfNBdROHwEVixNhFbI3S+UGBQfcPXQiYL+CjIjyR3DTg2Z+NFH9xzP+H4Oh/yGtTHDhC0GxYp7HQQ==
   dependencies:
     "@redux-saga/symbols" "^1.1.0"
     "@redux-saga/types" "^1.1.0"
@@ -883,12 +879,10 @@
 "@redux-saga/symbols@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/symbols/-/symbols-1.1.0.tgz#676b277cb5deb48ce723b2b394cbae97f82e8319"
-  integrity sha512-Fzw1wV3j4hbac3MYmgNE18Z53URmQZeilTHZLF7Lm4SQ1jG4fcU47v2kElsEbQXUSaFqj+uJqdRzmDGNb6pRwQ==
 
 "@redux-saga/types@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.1.0.tgz#0e81ce56b4883b4b2a3001ebe1ab298b84237204"
-  integrity sha512-afmTuJrylUU/0OtqzaRkbyYFFNgCF73Bvel/sw90pvGrWIZ+vyoIJqA6eMSoA6+nb443kTmulmBtC9NerXboNg==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -1402,7 +1396,7 @@ arrify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
-asap@~2.0.6:
+asap@~2.0.3, asap@~2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
 
@@ -2159,6 +2153,10 @@ chalk@^1.0.0, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
+change-emitter@^0.1.2:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/change-emitter/-/change-emitter-0.1.6.tgz#e8b2fe3d7f1ab7d69a32199aff91ea6931409515"
+
 character-entities-html4@^1.0.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/character-entities-html4/-/character-entities-html4-1.1.3.tgz#5ce6e01618e47048ac22f34f7f39db5c6fd679ef"
@@ -2497,6 +2495,10 @@ core-js-compat@^3.1.1:
 core-js@2.6.4:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.4.tgz#b8897c062c4d769dd30a0ac5c73976c47f92ea0d"
+
+core-js@^1.0.0:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
 core-js@^2.4.0, core-js@^2.5.0:
   version "2.6.9"
@@ -3166,6 +3168,12 @@ emojis-list@^2.0.0:
 encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
+
+encoding@^0.1.11:
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
+  dependencies:
+    iconv-lite "~0.4.13"
 
 end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   version "1.4.4"
@@ -3845,6 +3853,18 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
+fbjs@^0.8.1:
+  version "0.8.17"
+  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
+  dependencies:
+    core-js "^1.0.0"
+    isomorphic-fetch "^2.1.1"
+    loose-envify "^1.0.0"
+    object-assign "^4.1.0"
+    promise "^7.1.1"
+    setimmediate "^1.0.5"
+    ua-parser-js "^0.7.18"
+
 figgy-pudding@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
@@ -4442,6 +4462,10 @@ hoek@4.x.x:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
 
+hoist-non-react-statics@^2.3.1:
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
+
 hoist-non-react-statics@^3.2.1, hoist-non-react-statics@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
@@ -4618,7 +4642,7 @@ husky@^2.3.0:
     run-node "^1.0.0"
     slash "^3.0.0"
 
-iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4:
+iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
   dependencies:
@@ -5130,7 +5154,7 @@ is-root@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/is-root/-/is-root-2.0.0.tgz#838d1e82318144e5a6f77819d90207645acc7019"
 
-is-stream@^1.1.0:
+is-stream@^1.0.1, is-stream@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
 
@@ -5201,6 +5225,13 @@ isobject@^2.0.0:
 isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
+
+isomorphic-fetch@^2.1.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
+  dependencies:
+    node-fetch "^1.0.1"
+    whatwg-fetch ">=0.10.0"
 
 isstream@~0.1.2:
   version "0.1.2"
@@ -6481,6 +6512,13 @@ no-case@^2.2.0:
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
   dependencies:
     lower-case "^1.1.1"
+
+node-fetch@^1.0.1:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
+  dependencies:
+    encoding "^0.1.11"
+    is-stream "^1.0.1"
 
 node-forge@0.9.0:
   version "0.9.0"
@@ -7886,6 +7924,12 @@ promise@8.0.2:
   dependencies:
     asap "~2.0.6"
 
+promise@^7.1.1:
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
+  dependencies:
+    asap "~2.0.3"
+
 prompts@^0.1.9:
   version "0.1.14"
   resolved "https://registry.yarnpkg.com/prompts/-/prompts-0.1.14.tgz#a8e15c612c5c9ec8f8111847df3337c9cbd443b2"
@@ -8103,7 +8147,7 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.9.0:
   version "16.10.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.1.tgz#0612786bf19df406502d935494f0450b40b8294f"
 
-react-lifecycles-compat@^3.0.4:
+react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
@@ -8267,6 +8311,17 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
+recompose@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.30.0.tgz#82773641b3927e8c7d24a0d87d65aeeba18aabd0"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    change-emitter "^0.1.2"
+    fbjs "^0.8.1"
+    hoist-non-react-statics "^2.3.1"
+    react-lifecycles-compat "^3.0.2"
+    symbol-observable "^1.0.4"
+
 recursive-readdir@2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.2.tgz#9946fb3274e1628de6e36b2f6714953b4845094f"
@@ -8300,7 +8355,6 @@ redux-form@^8.2.6:
 redux-saga@^1.0.5:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.1.1.tgz#7e02879beb02c92030b5fbe746fd70e8bda97dfb"
-  integrity sha512-guSnGJ/uEF8yL8Mn4aNa7HxRGCpVUALCkec9iTTD0fOhQqkF6bRQkBLeS+7/cAH3nFnr299bi/DOurTi1apcCA==
   dependencies:
     "@redux-saga/core" "^1.1.1"
 
@@ -8797,7 +8851,7 @@ set-value@^2.0.0, set-value@^2.0.1:
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
 
-setimmediate@^1.0.4:
+setimmediate@^1.0.4, setimmediate@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
 
@@ -9525,7 +9579,7 @@ svgo@^1.0.0, svgo@^1.2.2:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-symbol-observable@^1.1.0, symbol-observable@^1.2.0:
+symbol-observable@^1.0.4, symbol-observable@^1.1.0, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
@@ -9810,21 +9864,22 @@ typedarray@^0.0.6:
 typescript-compare@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/typescript-compare/-/typescript-compare-0.0.2.tgz#7ee40a400a406c2ea0a7e551efd3309021d5f425"
-  integrity sha512-8ja4j7pMHkfLJQO2/8tut7ub+J3Lw2S3061eJLFQcvs3tsmJKp8KG5NtpLn7KcY2w08edF74BSVN7qJS0U6oHA==
   dependencies:
     typescript-logic "^0.0.0"
 
 typescript-logic@^0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/typescript-logic/-/typescript-logic-0.0.0.tgz#66ebd82a2548f2b444a43667bec120b496890196"
-  integrity sha512-zXFars5LUkI3zP492ls0VskH3TtdeHCqu0i7/duGt60i5IGPIpAHE/DWo5FqJ6EjQ15YKXrt+AETjv60Dat34Q==
 
 typescript-tuple@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/typescript-tuple/-/typescript-tuple-2.2.1.tgz#7d9813fb4b355f69ac55032e0363e8bb0f04dad2"
-  integrity sha512-Zcr0lbt8z5ZdEzERHAMAniTiIKerFCMgd7yjq1fPnDJ43et/k9twIFQMUYff9k5oXcsQ0WpvFcgzK2ZKASoW6Q==
   dependencies:
     typescript-compare "^0.0.2"
+
+ua-parser-js@^0.7.18:
+  version "0.7.20"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.20.tgz#7527178b82f6a62a0f243d1f94fd30e3e3c21098"
 
 uglify-js@3.4.x:
   version "3.4.10"
@@ -10238,7 +10293,7 @@ whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3:
   dependencies:
     iconv-lite "0.4.24"
 
-whatwg-fetch@3.0.0:
+whatwg-fetch@3.0.0, whatwg-fetch@>=0.10.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
 

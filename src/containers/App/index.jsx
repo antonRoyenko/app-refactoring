@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { GuestList } from '../../components/GuestList';
 
@@ -10,26 +10,14 @@ import { useAppData } from './useAppData';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { loading, guests, message } = useAppData();
-
-  const [name, setName] = useState('Bob');
-  const [food] = useState('Pizza');
-  const [isGoing] = useState(true);
-
-  const handleInputChange = useCallback(e => {
-    const { target } = e;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const { nameValue } = target;
-
-    setName({ [nameValue]: value });
-  }, []);
+  const { loading, guests, message, initialValues } = useAppData();
 
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
-      dispatch(APP_ACTIONS.TRIGGER({ name, isGoing, food }));
+      dispatch(APP_ACTIONS.TRIGGER());
     },
-    [dispatch, food, isGoing, name],
+    [dispatch],
   );
 
   return (
@@ -41,11 +29,8 @@ const App = () => {
       <h2>Invite Guest</h2>
 
       <InviteGuestForm
+        initialValues={initialValues}
         handleSubmit={handleSubmit}
-        nameValue={name}
-        handleInputChange={handleInputChange}
-        foodValue={food}
-        isGoing={isGoing}
         loading={loading}
         message={message}
       />
