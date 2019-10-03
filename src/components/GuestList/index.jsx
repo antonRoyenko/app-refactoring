@@ -1,22 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+import { GuestItem, Guests } from './styles';
 
 export const GuestList = ({ guests }) => (
-  <div className="guests">
+  <Guests>
     {guests.map(guest => (
-      <div
-        key={guest.id}
-        className={cn('guest', {
-          'guest-coming': guest.isGoing,
-        })}
-      >
+      <GuestItem key={guest.id} isGoing={guest.isGoing}>
         &gt; &gt;<p>Name: {guest.name}</p>
         <p>Will attend: {guest.isGoing ? 'true' : 'false'}</p>
         <p>Favourite food: {guest.favouriteFood}</p>
-      </div>
+      </GuestItem>
     ))}
-  </div>
+  </Guests>
 );
 
 GuestList.propTypes = {

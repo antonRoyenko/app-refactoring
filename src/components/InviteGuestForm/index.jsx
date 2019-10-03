@@ -7,9 +7,10 @@ import { StatusMessage } from '../StatusMessage';
 import { Button } from '../Button';
 import { INVITE_GUEST_FORM_NAME } from './constants';
 import { inviteGuestFormFields } from './fields';
+import { Form } from './styles';
 
 const InviteGuestFormImpl = ({ handleSubmit, loading, message }) => (
-  <form onSubmit={handleSubmit} className="guest-invite">
+  <Form onSubmit={handleSubmit}>
     <Field {...inviteGuestFormFields.name} />
     <br />
     <Field {...inviteGuestFormFields.isGoing} />
@@ -20,7 +21,7 @@ const InviteGuestFormImpl = ({ handleSubmit, loading, message }) => (
     <Preloader loading={loading} />
     <StatusMessage message={message} />
     <Button>Invite</Button>
-  </form>
+  </Form>
 );
 
 const enhance = compose(

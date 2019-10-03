@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { GuestList } from '../../components/GuestList';
 
 import logo from './logo.svg';
-import '../../App.css';
 import { InviteGuestForm } from '../../components/InviteGuestForm';
 import { APP_ACTIONS } from './actions';
+import { AppHeader, AppLogo, App as AppStyled } from './styles';
 import { useAppData } from './useAppData';
 
 const App = () => {
@@ -21,10 +21,10 @@ const App = () => {
   );
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+    <AppStyled>
+      <AppHeader>
+        <AppLogo src={logo} alt="logo" />
+      </AppHeader>
 
       <h2>Invite Guest</h2>
 
@@ -37,7 +37,7 @@ const App = () => {
 
       <h2>Guests</h2>
       <GuestList guests={guests} />
-    </div>
+    </AppStyled>
   );
 };
 

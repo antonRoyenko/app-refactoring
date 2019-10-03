@@ -1,15 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+import { Status } from './styles';
 
 export const StatusMessage = ({ message }) => (
-  <h3
-    className={cn('status', {
-      'status-in': message,
-    })}
-  >
-    Status: {message}
-  </h3>
+  <Status message={message}>Status: {message}</Status>
 );
 
 StatusMessage.propTypes = {
