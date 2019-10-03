@@ -1,18 +1,10 @@
-/*eslint-disable */
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
-import { reducer as formReducer } from 'redux-form';
-
-import reducer from './reducer';
-import saga from './saga';
+import saga from '../containers/App/saga';
+import createRootReducer from './createRootReducer';
 
 export const sagaMiddleware = createSagaMiddleware();
-
-const rootReducer = combineReducers({
-  reducer,
-  form: formReducer,
-});
 
 export default function configureStore() {
   const middlewares = [thunk, sagaMiddleware];
@@ -24,13 +16,13 @@ export default function configureStore() {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
           // Prevent recomputing reducers for `replaceReducer`
-        shouldHotReload: false,
-      })
+          shouldHotReload: false,
+        })
       : compose;
 
   const enhancers = [applyMiddleware(...middlewares)];
 
-  const store = createStore(rootReducer, composeEnhancers(...enhancers));
+  const store = createStore(createRootReducer, composeEnhancers(...enhancers));
 
   sagaMiddleware.run(saga);
 

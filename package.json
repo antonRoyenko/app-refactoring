@@ -5,9 +5,10 @@
     "dependencies": {
         "classnames": "^2.2.6",
         "prettier": "^1.18.2",
+        "prop-types": "^15.7.2",
         "react": "^16.8.4",
         "react-dom": "^16.8.4",
-        "react-redux": "^5.1.1",
+        "react-redux": "^7.1.1",
         "react-scripts": "2.1.8",
         "redux": "^4.0.1",
         "redux-form": "^8.2.6",
@@ -164,6 +165,14 @@
                 }
             ],
             "jsx-a11y/label-has-for": 0,
+            "jsx-a11y/label-has-associated-control": [
+                2,
+                {
+                    "controlComponents": [
+                        "Input"
+                    ]
+                }
+            ],
             "prettier/prettier": 1,
             "comma-dangle": 0,
             "spaced-comment": 1,
