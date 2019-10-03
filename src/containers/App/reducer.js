@@ -1,12 +1,6 @@
-/*eslint-disable */
 // import Immutable from 'seamless-immutable';
 
-const makeGuest = (name, isGoing, favouriteFood) => ({
-  id: Math.floor(Math.random() * 1000000),
-  name,
-  isGoing,
-  favouriteFood,
-});
+import { makeGuest } from '../../utils/utils';
 
 /**
  * Types
@@ -40,14 +34,6 @@ export const simpleAction = values => dispatch => {
     }
   });
 };
-
-/**
- * Selectors
- */
-
-export const selectGuests = state => Object.values(state.root.guests);
-export const selectLoading = state => state.root.loading;
-export const selectMessage = state => state.root.message;
 
 /**
  * Reducer
