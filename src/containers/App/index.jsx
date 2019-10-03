@@ -1,104 +1,59 @@
-/*eslint-disable */
-import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { Button } from '../../components/Button';
-import { Checkbox } from '../../components/Checkbox';
+import React, { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { GuestList } from '../../components/GuestList';
-import { Input } from '../../components/Input';
-import { Preloader } from '../../components/Preloader';
-import { DropDown } from '../../components/Select';
-import { StatusMessage } from '../../components/StatusMessage';
 
-import {
-  simpleAction,
-} from './reducer';
 import logo from './logo.svg';
 import '../../App.css';
+import { InviteGuestForm } from '../../components/InviteGuestForm';
+import { APP_ACTIONS } from './actions';
+import { useAppData } from './useAppData';
 
-const options = [
-  { value: 'Pizza', label: 'Pizza' },
-  { value: 'Lime', label: 'Lime' },
-  { value: 'Coconut', label: 'Coconut' },
-  { value: 'Mango', label: 'Mango' },
-];
+const App = () => {
+  const dispatch = useDispatch();
+  const { loading, guests, message } = useAppData();
 
-class App extends React.Component {
-  state = {
-    name: 'Bob',
-    food: 'Pizza',
-    isGoing: true,
-  };
+  const [name, setName] = useState('Bob');
+  const [food] = useState('Pizza');
+  const [isGoing] = useState(true);
 
-  handleInputChange = event => {
-    const { target } = event;
+  const handleInputChange = useCallback(e => {
+    const { target } = e;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const { name } = target;
+    const { nameValue } = target;
 
-    this.setState({
-      [name]: value,
-    });
-  };
+    setName({ [nameValue]: value });
+  }, []);
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.simpleAction(this.state);
-  };
+  const handleSubmit = useCallback(
+    e => {
+      e.preventDefault();
+      dispatch(APP_ACTIONS.TRIGGER());
+    },
+    [dispatch],
+  );
 
-  render() {
-    const { loading, guests, message } = this.props;
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+      </header>
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
+      <h2>Invite Guest</h2>
 
-        <h2>Invite Guest</h2>
+      <InviteGuestForm
+        handleSubmit={handleSubmit}
+        nameValue={name}
+        handleInputChange={handleInputChange}
+        foodValue={food}
+        isGoing={isGoing}
+        loading={loading}
+        message={message}
+      />
 
-        <form onSubmit={this.handleSubmit} className="guest-invite">
-          <Input
-            label="Name"
-            value={this.state.name}
-            onChange={this.handleInputChange}
-          />
-          <br />
-          <Checkbox
-            name="isGoing"
-            label="isGoing"
-            type="checkbox"
-            checked={this.state.isGoing}
-            onChange={this.handleInputChange}
-          />
-          <br />
-          <DropDown
-            label="Pick your favorite food:"
-            name="food"
-            value={this.state.food}
-            onChange={this.handleInputChange}
-            options={options}
-          />
-          <br />
+      <h2>Guests</h2>
+      <GuestList guests={guests} />
+    </div>
+  );
+};
 
-          <Preloader loading={loading} />
-          <StatusMessage message={message} />
-          <Button>Invite</Button>
-        </form>
-
-        <h2>Guests</h2>
-        <GuestList guests={guests} />
-      </div>
-    );
-  }
-}
-
-const mapDispatchToProps = dispatch => ({
-  simpleAction: values => dispatch(simpleAction(values)),
-});
-
-const withConnect = connect(
-  null,
-  mapDispatchToProps,
-);
-
-export default compose(withConnect)(App);
+export default App;

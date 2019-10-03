@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Input = ({ label, value, onChange }) => (
+export const Input = ({ name, label, value, onChange }) => (
   <label>
     {label}
-    <input type="Input" value={value} onChange={onChange} />
+    <input name={name} type="Input" value={value} onChange={onChange} />
   </label>
 );
 
