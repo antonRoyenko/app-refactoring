@@ -1,6 +1,5 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
-import { compose } from 'recompose';
 import { Field } from '../FormFields';
 import { Preloader } from '../Preloader';
 import { StatusMessage } from '../StatusMessage';
@@ -24,10 +23,6 @@ const InviteGuestFormImpl = ({ handleSubmit, loading, message }) => (
   </Form>
 );
 
-const enhance = compose(
-  reduxForm({
-    form: INVITE_GUEST_FORM_NAME,
-  }),
-);
-
-export const InviteGuestForm = enhance(InviteGuestFormImpl);
+export const InviteGuestForm = reduxForm({
+  form: INVITE_GUEST_FORM_NAME,
+})(InviteGuestFormImpl);

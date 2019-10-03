@@ -1,9 +1,10 @@
-import { all, cancel, delay, put, select, takeEvery } from 'redux-saga/effects';
+import { all, cancel, put, select, takeEvery } from 'redux-saga/effects';
 import { APP_ACTIONS, SIMPLE_ACTION } from './actions';
 import { makeGuest } from '../../utils/utils';
 import { makeSelectFormValues } from './selectors';
 
-const DELAY_TIME = 100;
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+const DELAY_TIME = 1000;
 
 function* testSaga() {
   const values = yield select(makeSelectFormValues);

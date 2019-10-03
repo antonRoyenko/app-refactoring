@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { GuestList } from '../../components/GuestList';
 
 import logo from './logo.svg';
@@ -7,17 +8,21 @@ import { InviteGuestForm } from '../../components/InviteGuestForm';
 import { APP_ACTIONS } from './actions';
 import { AppHeader, AppLogo, App as AppStyled } from './styles';
 import { useAppData } from './useAppData';
+import {
+  makeSelectGuests,
+  makeSelectLoading,
+  makeSelectMessage,
+} from './selectors';
 
-const App = () => {
-  const dispatch = useDispatch();
-  const { loading, guests, message, initialValues } = useAppData();
+const App = ({ submitForm, guests, loading, message }) => {
+  const { initialValues } = useAppData();
 
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
-      dispatch(APP_ACTIONS.TRIGGER());
+      submitForm();
     },
-    [dispatch],
+    [submitForm],
   );
 
   return (
@@ -41,4 +46,19 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => ({
+  guests: makeSelectGuests(state),
+  loading: makeSelectLoading(state),
+  message: makeSelectMessage(state),
+});
+
+const mapDispatchToProps = {
+  submitForm: APP_ACTIONS.TRIGGER,
+};
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(withConnect)(App);
