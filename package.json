@@ -1,25 +1,188 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "name": "my-app",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "prettier": "^1.18.2",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4",
+        "react-redux": "^5.1.1",
+        "react-scripts": "2.1.8",
+        "redux": "^4.0.1",
+        "redux-form": "^8.2.6",
+        "redux-saga": "^0.16.0",
+        "redux-thunk": "^2.3.0",
+        "seamless-immutable": "^7.1.4",
+        "styled-components": "^4.1.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "lint:all:check": "yarn run && yarn run lint:scripts:check",
+        "lint:all:fix": "yarn run lint:styles:fix && yarn run lint:scripts:fix",
+        "lint:scripts:check": "eslint --format friendly \"src/**/*.{js,jsx}\"",
+        "lint:scripts:fix": "yarn run lint:scripts:check --fix"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "devDependencies": {
+        "babel-eslint": "^10.0.3",
+        "babel-plugin-macros": "^2.5.0",
+        "eslint": "^5.16.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-config-prettier": "^6.3.0",
+        "eslint-config-react-app": "^5.0.2",
+        "eslint-formatter-friendly": "^7.0.0",
+        "eslint-import-resolver-webpack": "^0.11.1",
+        "eslint-plugin-flowtype": "^4.3.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.1",
+        "eslint-plugin-react": "^7.15.1",
+        "eslint-plugin-react-hooks": "^2.1.1",
+        "eslint-plugin-redux-saga": "^1.1.1",
+        "husky": "^2.3.0",
+        "lint-staged": "^8.1.7"
+    },
+    "lint-staged": {
+        "src/**/*.(js|jsx)": [
+            "yarn run lint:scripts:fix",
+            "git add"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "prettier": {
+        "singleQuote": true,
+        "printWidth": 80,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": true,
+        "trailingComma": "all"
+    },
+    "eslintConfig": {
+        "plugins": [
+            "react",
+            "prettier",
+            "redux-saga",
+            "react-hooks"
+        ],
+        "parser": "babel-eslint",
+        "extends": [
+            "plugin:react/recommended",
+            "react-app",
+            "airbnb",
+            "prettier/react",
+            "plugin:prettier/recommended"
+        ],
+        "parserOptions": {
+            "ecmaVersion": 2018,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
+        "settings": {
+            "import/resolver": {
+                "node": {
+                    "extensions": [
+                        ".js",
+                        ".jsx",
+                        ".json"
+                    ]
+                }
+            }
+        },
+        "rules": {
+            "import/no-extraneous-dependencies": 0,
+            "import/no-anonymous-default-export": 2,
+            "import/no-unresolved": {
+                "commonjs": true
+            },
+            "react/jsx-key": 2,
+            "react/jsx-one-expression-per-line": 0,
+            "react/prop-types": 0,
+            "react/jsx-props-no-spreading": "off",
+            "react/jsx-filename-extension": [
+                1,
+                {
+                    "extensions": [
+                        ".jsx"
+                    ]
+                }
+            ],
+            "jsx-a11y/label-has-for": 0,
+            "jsx-a11y/label-has-associated-control": [
+                2,
+                {
+                    "controlComponents": [
+                        "Input"
+                    ]
+                }
+            ],
+            "prettier/prettier": 1,
+            "comma-dangle": 0,
+            "spaced-comment": 1,
+            "no-await-in-loop": 0,
+            "no-use-before-define": 0,
+            "no-restricted-syntax": [
+                "error",
+                "ForInStatement",
+                "LabeledStatement",
+                "WithStatement"
+            ],
+            "no-underscore-dangle": 0,
+            "no-debugger": 1,
+            "sort-imports": [
+                "error",
+                {
+                    "ignoreDeclarationSort": true
+                }
+            ],
+            "arrow-body-style": [
+                2,
+                "as-needed"
+            ],
+            "import/imports-first": 2,
+            "import/newline-after-import": 2,
+            "import/no-dynamic-require": 0,
+            "import/no-named-as-default": 0,
+            "import/no-webpack-loader-syntax": 0,
+            "import/prefer-default-export": 0,
+            "max-len": 0,
+            "newline-per-chained-call": 0,
+            "no-confusing-arrow": [
+                "error",
+                {
+                    "allowParens": true
+                }
+            ],
+            "no-console": 1,
+            "no-unused-vars": 2,
+            "prefer-template": 2,
+            "react/jsx-first-prop-new-line": [
+                2,
+                "multiline"
+            ],
+            "react/jsx-no-target-blank": 0,
+            "react/jsx-uses-vars": 2,
+            "react/sort-comp": 0,
+            "redux-saga/no-yield-in-race": 2,
+            "redux-saga/yield-effects": 2,
+            "require-yield": 0,
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn"
+        }
+    }
 }
