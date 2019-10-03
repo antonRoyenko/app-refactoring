@@ -2,7 +2,7 @@ import createAction from '../../utils/createAction';
 
 const actionScope = 'LISTING.';
 
-const SIMPLE_ACTION = {
+export const SIMPLE_ACTION = {
   TRIGGER: `${actionScope}TRIGGER`,
   SUCCESS: `${actionScope}SUCCESS`,
   FAILURE: `${actionScope}FAILURE`,

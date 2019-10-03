@@ -1,43 +1,30 @@
-// import Immutable from 'seamless-immutable';
+import Immutable from 'seamless-immutable';
 
 import { makeGuest } from '../../utils/utils';
+import { SIMPLE_ACTION } from './actions';
 
-/**
- * Types
- */
-export const SIMPLE_ACTION_TRIGGER = 'SIMPLE_ACTION/TRIGGER';
-export const SIMPLE_ACTION_SUCCESS = 'SIMPLE_ACTION/SUCCESS';
-export const SIMPLE_ACTION_FAILURE = 'SIMPLE_ACTION/FAILURE';
-
-/**
- * Actions
- */
 export const simpleAction = values => dispatch => {
   dispatch({
-    type: SIMPLE_ACTION_TRIGGER,
+    type: SIMPLE_ACTION.TRIGGER,
     payload: values,
   });
 
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-  delay(1000).then(() => {
+  delay(100).then(() => {
     if (Math.random() < 0.5) {
       dispatch({
-        type: SIMPLE_ACTION_SUCCESS,
+        type: SIMPLE_ACTION.SUCCESS,
         payload: makeGuest(values.name, values.isGoing, values.food),
       });
     } else {
       dispatch({
-        type: SIMPLE_ACTION_FAILURE,
+        type: SIMPLE_ACTION.FAILURE,
         payload: values.name,
       });
     }
   });
 };
-
-/**
- * Reducer
- */
 
 const initialState = {
   guests: {
@@ -58,30 +45,24 @@ const initialState = {
   message: '',
 };
 
-const appReducer = (state = initialState, { type, payload }) => {
+const appReducer = (state = Immutable(initialState), { type, payload }) => {
   switch (type) {
-    case SIMPLE_ACTION_TRIGGER:
-      return {
-        ...state,
-        loading: true,
-        message: '',
-      };
-    case SIMPLE_ACTION_FAILURE:
-      return {
-        ...state,
+    case SIMPLE_ACTION.TRIGGER:
+      return Immutable.merge(state, { loading: true, message: '' });
+    case SIMPLE_ACTION.FAILURE:
+      return Immutable.merge(state, {
         loading: false,
         message: `Failed to invite guest ${payload}`,
-      };
-    case SIMPLE_ACTION_SUCCESS:
-      return {
-        ...state,
+      });
+    case SIMPLE_ACTION.SUCCESS:
+      return Immutable.merge(state, {
         guests: {
           ...state.guests,
           [payload.id]: payload,
         },
         loading: false,
-        message: `Succesfuly invited guest ${payload.name}`,
-      };
+        message: `Successfully invited guest ${payload.name}`,
+      });
     default:
       return state;
   }
