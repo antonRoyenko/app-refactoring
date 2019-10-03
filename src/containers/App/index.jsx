@@ -27,9 +27,9 @@ const App = () => {
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
-      dispatch(APP_ACTIONS.TRIGGER());
+      dispatch(APP_ACTIONS.TRIGGER({ name, isGoing, food }));
     },
-    [dispatch],
+    [dispatch, food, isGoing, name],
   );
 
   return (
