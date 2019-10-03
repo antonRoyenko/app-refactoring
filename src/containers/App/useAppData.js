@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import {
   makeSelectGuests,
@@ -10,5 +11,14 @@ export function useAppData() {
   const guests = useSelector(makeSelectGuests);
   const message = useSelector(makeSelectMessage);
 
-  return { loading, guests, message };
+  const initialValues = useMemo(
+    () => ({
+      name: 'Bob',
+      food: 'Pizza',
+      isGoing: true,
+    }),
+    [],
+  );
+
+  return { loading, guests, message, initialValues };
 }

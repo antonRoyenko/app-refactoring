@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const DropDown = ({ label, value, onChange, name, options }) => (
+export const DropDown = ({ label, options, input }) => (
   <label>
     {label}
-    <select name={name} value={value} onChange={onChange}>
+    <select {...input}>
       {options.map(item => (
         <option key={item.value} value={item.value}>
           {item.label}
@@ -16,8 +16,6 @@ export const DropDown = ({ label, value, onChange, name, options }) => (
 
 DropDown.propTypes = {
   label: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -28,6 +26,5 @@ DropDown.propTypes = {
 
 DropDown.defaultProps = {
   label: '',
-  value: '',
   options: [],
 };

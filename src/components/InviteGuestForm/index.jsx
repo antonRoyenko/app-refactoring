@@ -1,39 +1,20 @@
 import React from 'react';
-import { Input } from '../Input';
-import { Checkbox } from '../Checkbox';
-import { DropDown } from '../Select';
+import { reduxForm } from 'redux-form';
+import { compose } from 'recompose';
+import { Field } from '../FormFields';
 import { Preloader } from '../Preloader';
 import { StatusMessage } from '../StatusMessage';
 import { Button } from '../Button';
+import { INVITE_GUEST_FORM_NAME } from './constants';
 import { inviteGuestFormFields } from './fields';
 
-export const InviteGuestForm = ({
-  handleSubmit,
-  nameValue,
-  handleInputChange,
-  isGoing,
-  loading,
-  message,
-  foodValue,
-}) => (
+const InviteGuestFormImpl = ({ handleSubmit, loading, message }) => (
   <form onSubmit={handleSubmit} className="guest-invite">
-    <Input
-      {...inviteGuestFormFields.name}
-      value={nameValue}
-      onChange={handleInputChange}
-    />
+    <Field {...inviteGuestFormFields.name} />
     <br />
-    <Checkbox
-      {...inviteGuestFormFields.isGoing}
-      checked={isGoing}
-      onChange={handleInputChange}
-    />
+    <Field {...inviteGuestFormFields.isGoing} />
     <br />
-    <DropDown
-      {...inviteGuestFormFields.food}
-      value={foodValue}
-      onChange={handleInputChange}
-    />
+    <Field {...inviteGuestFormFields.food} />
     <br />
 
     <Preloader loading={loading} />
@@ -42,4 +23,10 @@ export const InviteGuestForm = ({
   </form>
 );
 
-InviteGuestForm.propTypes = {};
+const enhance = compose(
+  reduxForm({
+    form: INVITE_GUEST_FORM_NAME,
+  }),
+);
+
+export const InviteGuestForm = enhance(InviteGuestFormImpl);
