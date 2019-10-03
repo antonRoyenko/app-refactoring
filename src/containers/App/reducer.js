@@ -1,3 +1,4 @@
+// TODO could use immutable.js more powerful lib for immutable data
 import Immutable from 'seamless-immutable';
 
 import { SIMPLE_ACTION } from './actions';

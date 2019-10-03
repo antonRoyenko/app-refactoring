@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
+// TODO Could update react-redux to v7.1.0, in this release useSelector and useDispatch hook (see development branch)
 import { connect } from 'react-redux';
+// TODO Could add compose from recompose, more comfortable lib with cool HOC's
 import { compose } from 'redux';
 import { GuestList } from '../../components/GuestList';
 
